@@ -2,14 +2,14 @@
 <root>
   <!-- Data dos carrosseis de imagem das artes -->
   <posts>
-    <colecao>
+    <colecao id="Sapos_RPG">
       <nome>Sapos RPG</nome>
       <img type="jpg">Sapo Druida</img>
       <img type="jpg">Sapo Guerreiro</img>
       <img type="jpg">Sapo Bardo</img>
       <img type="jpg">Sapo Mago</img>
     </colecao>
-    <colecao>
+    <colecao id="Lego_Star_Wars">
       <nome>Lego Star Wars</nome>
       <img type="png">C3PO</img>
       <img type="png">HanSolo</img>
@@ -21,32 +21,32 @@
   </posts>
   <!-- Data do grade de imagens de eventos anteriores -->
   <evento>
-    <mesa>
+    <mesa id="Bunkyo.png">
       <nome>Feira de Arte e Cultura Pop</nome>
       <data>27/07/2025</data>
       <foto type="png">Bunkyo</foto>
     </mesa>
-    <mesa>
+    <mesa id="Maid Cafe.jpeg">
       <nome>Maid Café</nome>
       <data>26/07/2025</data>
       <foto type="jpeg">Maid cafe</foto>
     </mesa>
-    <mesa>
+    <mesa id="ElCabriton.jpeg">
       <nome>El Cabriton</nome>
       <data>13/09/2025</data>
       <foto type="jpeg">El Cabriton</foto>
     </mesa>
-    <mesa>
-      <nome>Shopping</nome>
+    <mesa id="shopping1.jpeg">
+      <nome>Shopping 1</nome>
       <data>01/08/2025</data>
       <foto type="jpeg">shopping1</foto>
     </mesa>
-    <mesa>
-      <nome>Shopping</nome>
+    <mesa id="Shopping 2.jpeg">
+      <nome>Shopping 2</nome>
       <data>02/08/2025</data>
       <foto type="jpeg">Shopping 2</foto>
     </mesa>
-    <mesa>
+    <mesa id="feira.jpeg">
       <nome>Feira de Artesanato</nome>
       <data>24/08/2025</data>
       <foto type="jpeg">feira</foto>

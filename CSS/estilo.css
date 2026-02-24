@@ -208,6 +208,18 @@ footer h1{
 
 .ferramentas{
 	margin: 0.5vw;
+    border-bottom: solid #263340 3px;
+    border-radius: 5px ;
+}
+.ferramentas p{
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.ferramentas h1,h2{
+    margin-bottom: 6px;
+}
+.ferramentas input[type=submit]{
+    margin-left: -10px;
 }
 
 .voltar{

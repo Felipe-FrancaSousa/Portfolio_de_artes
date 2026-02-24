@@ -3,6 +3,40 @@
 <main>
     <div class="ferramentas">
         <?php 
+
+        // ---------------------EXCLUIR-----------------------------  
+
+            if(isset($_POST["submitExclude"])) {
+                $eventoDD = $_POST['eventoDD'];
+                echo "O Evento ".$eventoDD." está sendo excluida!";
+
+                $dom=new DOMDocument;
+                $dom->ownerDocument;
+                $dom->preserveWhiteSpace = false;
+                $dom->formatOutput = true;
+                $dom->loadXML($xml->asXML());
+
+                $root = $dom->getElementsByTagName('evento')->item(0);
+                $child = $root->getElementsByTagName('mesa');
+
+                foreach($child as $evento){
+                    $id = $evento->getAttribute('id');
+
+                    if ($id == $eventoDD){
+                       $root->removeChild($evento);
+                    }
+                }
+
+                $dom->save('data/dados.xml') or die('XML Create Error');
+
+                // Remove os arquivos
+                unlink("data/eventos/$eventoDD");
+
+                echo "<p>Evento ".$eventoDD." foi excluida com sucesso!<p/>";
+            }
+
+        // ---------------------INCLUIR-----------------------------
+
             if (isset($_FILES['foto'])) {
 
             $name = $_FILES['foto']['name'];
@@ -64,8 +98,6 @@
             // Se o arquivo da foto estiver ok, as informações são gravadas no XML
             if($uploadOk == 1){
 
-            $id =($xml->evento->mesa[count($xml->evento->mesa)-1]['id'] + 1);
-
             // Configuração do DOMDocument para formatação do XML
             $dom=new DOMDocument;
             $dom->ownerDocument;
@@ -79,6 +111,7 @@
             // Cria o elemento mesa com um atributo ID
             $mesa = $dom->createElement('mesa');
             $root->appendChild($mesa);
+            $mesa->setAttribute('id', $name);
 
             // Cria e inclui os elemntos de nome da coleção e as imagens
             $nome = $dom->createElement('nome', $_POST['nomeEvento']);
