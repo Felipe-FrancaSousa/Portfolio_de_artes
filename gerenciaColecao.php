@@ -3,39 +3,73 @@
 <main>
     <div class="ferramentas">
         <?php 
-        
+        function dir_is_empty($path){ //$path is realpath or relative path
+
+            $d = scandir($path, SCANDIR_SORT_NONE ); // get dir, without sorting improve performace (see Comment below). 
+
+            if ($d){
+
+                // avoid "count($d)", much faster on big array. 
+                // Index 2 means that there is a third element after ".." and "."
+
+                return !isset($d[2]); 
+            }
+
+            return false; // or throw an error
+        }
         // ---------------------EXCLUIR-----------------------------  
 
-            if(isset($_POST["submitExclude"])) {
-                $colecaoDD = $_POST['colecaoDD'];
-                echo "A coleção ".$colecaoDD." está sendo excluida!";
+            if(isset($_POST["submitexcluir"])){
 
-                $dom=new DOMDocument;
-                $dom->ownerDocument;
+                $excluirDD = $_POST['excluirDD'];
+
+                $dom = new DOMDocument;
                 $dom->preserveWhiteSpace = false;
                 $dom->formatOutput = true;
                 $dom->loadXML($xml->asXML());
 
-                $root = $dom->getElementsByTagName('posts')->item(0);
-                $child = $root->getElementsByTagName('colecao');
+                $colecoes = $dom->getElementsByTagName('colecao');
 
-                foreach($child as $colecao){
+                foreach($colecoes as $colecao){
+
                     $id = $colecao->getAttribute('id');
 
-                    if ($id == $colecaoDD){
-                       $root->removeChild($colecao);
+                    if($id == $excluirDD){
+                        $imgs = $colecao->getElementsByTagName('img');
+
+                        for($i = $imgs->length - 1; $i >= 0; $i--){
+
+                            $img = $imgs->item($i);
+                            if(in_array($img->nodeValue, $_POST['excluirCB'])){
+                                $tipo = $img->getAttribute("type");
+
+                                $colecao->removeChild($img);
+                                array_map('unlink', array_filter((array) glob("data/artes/$excluirDD/$img->nodeValue.$tipo")));
+                                echo "Imagem ".$img->nodeValue.".".$tipo." foi removido com sucesso!<br><br>";
+                            }
+
+                        }
+                        if(dir_is_empty("data/artes/$excluirDD")){
+                            $root = $dom->getElementsByTagName('posts')->item(0);
+                            $child = $root->getElementsByTagName('colecao');
+
+                            foreach($child as $colecao){
+                                $id = $colecao->getAttribute('id');
+
+                                if ($id == $excluirDD){
+                                $root->removeChild($colecao);
+                                }
+                            }
+                            rmdir("data/artes/$excluirDD");
+                            echo "<p>Coleção ".$excluirDD." foi excluida.<p>";
+                        }
+
                     }
                 }
 
                 $dom->save('data/dados.xml') or die('XML Create Error');
-                
-                // Remove os arquivos
-
-                array_map('unlink', array_filter((array) glob("data/artes/$colecaoDD/*")));
-                rmdir("data/artes/$colecaoDD");
-
-                echo "<p>Coleção ".$colecaoDD." foi excluida com sucesso!<p/>";
             }
+
 
         // ---------------------INCLUIR-----------------------------
 

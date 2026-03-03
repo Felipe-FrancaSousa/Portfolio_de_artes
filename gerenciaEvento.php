@@ -3,12 +3,13 @@
 <main>
     <div class="ferramentas">
         <?php 
+        // ---------------------EDITAR------------------------------  
+
 
         // ---------------------EXCLUIR-----------------------------  
 
             if(isset($_POST["submitExclude"])) {
-                $eventoDD = $_POST['eventoDD'];
-                echo "O Evento ".$eventoDD." está sendo excluida!";
+                $eventoRD = $_POST['eventoRD'];
 
                 $dom=new DOMDocument;
                 $dom->ownerDocument;
@@ -22,17 +23,17 @@
                 foreach($child as $evento){
                     $id = $evento->getAttribute('id');
 
-                    if ($id == $eventoDD){
-                       $root->removeChild($evento);
+                    if ($id == $eventoRD){
+                        $root->removeChild($evento);
                     }
                 }
 
                 $dom->save('data/dados.xml') or die('XML Create Error');
 
                 // Remove os arquivos
-                unlink("data/eventos/$eventoDD");
+                unlink("data/eventos/$eventoRD");
 
-                echo "<p>Evento ".$eventoDD." foi excluida com sucesso!<p/>";
+                echo "<p>Evento ".$eventoRD." foi excluido com sucesso!<p/>";
             }
 
         // ---------------------INCLUIR-----------------------------

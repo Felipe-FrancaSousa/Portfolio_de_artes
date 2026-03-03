@@ -246,6 +246,32 @@ footer h1{
     border-radius: 2vw;
 }
 
+.excluirCB-grid{
+	width: 50%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 15vw);
+	gap: 0.2vw;
+}
+
+.excluirCB-opcao{
+    text-align: center;
+}
+
+.excluirEvento-grid{
+	width: 80%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 20vw);
+	gap: 0.2vw;
+}
+
+.excluirEvento-opcao{
+    text-align: center;
+}
+
+.excluirCB-all{
+    margin: 1vw 0;
+}
+
 #msg{
     color: rgb(104, 6, 6);
 }
