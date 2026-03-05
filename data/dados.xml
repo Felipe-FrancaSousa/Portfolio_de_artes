@@ -26,23 +26,23 @@
       <data>27/07/2025</data>
       <foto type="png">Bunkyo</foto>
     </mesa>
-    <mesa id="Maid Cafe.jpeg">
+    <mesa id="Maid cafe.jpeg">
       <nome>Maid Café</nome>
       <data>26/07/2025</data>
       <foto type="jpeg">Maid cafe</foto>
     </mesa>
-    <mesa id="ElCabriton.jpeg">
+    <mesa id="El Cabriton.jpeg">
       <nome>El Cabriton</nome>
       <data>13/09/2025</data>
       <foto type="jpeg">El Cabriton</foto>
     </mesa>
     <mesa id="shopping1.jpeg">
-      <nome>Shopping 1</nome>
+      <nome>Shopping</nome>
       <data>01/08/2025</data>
       <foto type="jpeg">shopping1</foto>
     </mesa>
     <mesa id="Shopping 2.jpeg">
-      <nome>Shopping 2</nome>
+      <nome>Shopping</nome>
       <data>02/08/2025</data>
       <foto type="jpeg">Shopping 2</foto>
     </mesa>

@@ -19,13 +19,27 @@
         </script>
     <!-- Gerenciamento de coleções -->
         <div class="ferramentas">
-            <!--Inclusão-->
+            <!--Inclusão nova coleção-->
             <form action="gerenciaColecao.php" method="post" enctype="multipart/form-data">
                 <h1>Gerenciamento das coleções</h1>
                 <h2>Inclua uma nova coleção:</h2>
                 <p>Nome da coleção: <input type="text" name="colecao" id="colecao" required></p>
-                <p>Arquivo: <input type="file" name="arquivo[]" id="arquivo" multiple required></p>
-                <p><input type="submit" value="Enviar coleção" name="submitUpload"></p>
+                <p>Arquivos: <input type="file" name="arquivo[]" id="arquivo" multiple required></p>
+                <p><input type="submit" value="Enviar coleção" name="submitColecao"></p>
+            </form>
+            <br>
+
+            <!--Inclusão em coleção já existente-->
+            <form action="gerenciaColecao.php" method="post" enctype="multipart/form-data">
+                <h2>Inlcuir em coleção já existente: </h2>
+                <p>Coleção: <select name="incluirDD" id="incluirDD" required>
+                    <option value="" disabled selected>-Coleções-</option>
+                    <?php foreach($xml->posts->colecao as $pasta):?>
+                    <option value="<?=$pasta['id']?>" ><?=$pasta->nome?></option>
+                    <?php endforeach?>
+                </select></p>
+                <p>Arquivos: <input type="file" name="arquivo[]" id="arquivo" multiple required></p>
+                <p><input type="submit" value="Incluir na coleção" name="submitIncluir"></p>
             </form>
             <br>
 
@@ -42,7 +56,7 @@
                 <br>
                     <div id="excluir">
                     </div>
-                <p><input type="submit" value="excluir" name="submitexcluir"></p>
+                <p><input type="submit" value="excluir" name="submitExcluir"></p>
             </form>
         </div>
 
