@@ -4,15 +4,30 @@
     <br>
     <div class="rodape">
         <div class="rodape-item">
-            <a href="https://www.instagram.com/largatixaatropical?igsh=azY0Mmw5Z2k5OG0z">
+            <a href="https://www.instagram.com/largatixaatropical">
                 <img src="<?=$BASE_URL?>img/instagram.png" alt="instagram icon">
             </a>
         </div>
         <div class="rodape-item">
-            <a href="https://www.instagram.com/largatixaatropical?igsh=azY0Mmw5Z2k5OG0z">
-                <p>@Largatixaatropical</passthru>
+            <a href="https://www.instagram.com/largatixaatropical">
+                <p>@Largatixaatropical - Instagram de cosplay!</p> 
             </a>
         </div>
+    </div>
+    <br>
+    <div class="rodape">
+        <div class="rodape-item">
+            <a href="https://www.instagram.com/largatixartes">
+                <img src="<?=$BASE_URL?>img/instagram.png" alt="instagram icon">
+            </a>
+        </div>
+        <div class="rodape-item">
+            <a href="https://www.instagram.com/largatixartes">
+                <p>@largatixartes - Instagram de arte!</p>
+            </a>
+        </div>
+    </div>
+    <div class="rodape">
         <div class="restrito">
              <a href="<?=$BASE_URL?>login.php">
                 <p>Gerenciar</p>

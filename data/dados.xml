@@ -8,6 +8,10 @@
       <img type="jpg">Sapo Guerreiro</img>
       <img type="jpg">Sapo Bardo</img>
       <img type="jpg">Sapo Mago</img>
+      <img type="jpg">Sapo Druida</img>
+      <img type="jpg">Sapo Guerreiro</img>
+      <img type="jpg">Sapo Bardo</img>
+      <img type="jpg">Sapo Mago</img>
     </colecao>
     <colecao id="Lego_Star_Wars">
       <nome>Lego Star Wars</nome>
@@ -17,10 +21,102 @@
       <img type="png">Obi-Wan</img>
       <img type="png">R2D2</img>
       <img type="png">Vader</img>
+      <img type="png">C3PO</img>
+      <img type="png">HanSolo</img>
+      <img type="png">Luke</img>
+      <img type="png">Obi-Wan</img>
+      <img type="png">R2D2</img>
+      <img type="png">Vader</img>
+    </colecao>
+    <colecao id="Pokemon">
+      <nome>Pokemon</nome>
+      <img type="png">CLT</img>
+      <img type="jpg">Dipirona</img>
+      <img type="png">Gengar_Princesa</img>
+      <img type="png">Jiggles</img>
+      <img type="png">Manchamps</img>
+      <img type="png">Ruptura</img>
+      <img type="png">Squirtles</img>
+      <img type="png">Tentacruels</img>
+      <img type="png">THE_Gang</img>
+      <img type="png">Umbreon</img>
+    </colecao>
+    <colecao id="Hades">
+      <nome>Hades</nome>
+      <img type="png">Benção Afrodite</img>
+      <img type="png">Benção Ares</img>
+      <img type="png">Benção Hades</img>
+      <img type="png">Benção Poseidon</img>
+      <img type="png">Benção Zeus</img>
+      <img type="png">Benção Afrodite</img>
+      <img type="png">Benção Ares</img>
+      <img type="png">Benção Hades</img>
+      <img type="png">Benção Poseidon</img>
+      <img type="png">Benção Zeus</img>
+    </colecao>
+    <colecao id="EPIC">
+      <nome>EPIC</nome>
+      <img type="jpg">Calipso</img>
+      <img type="jpg">Circe</img>
+      <img type="jpg">Hermes</img>
+      <img type="png">Hermes_Turururu</img>
+      <img type="jpg">Meio-Irmãos</img>
+      <img type="jpg">Calipso</img>
+      <img type="jpg">Circe</img>
+      <img type="jpg">Hermes</img>
+      <img type="png">Hermes_Turururu</img>
+      <img type="jpg">Meio-Irmãos</img>
+    </colecao>
+    <colecao id="Adesivos_Avulsos">
+      <nome>Adesivos Avulsos</nome>
+      <img type="png">Annie</img>
+      <img type="png">Astarion_Disapproves</img>
+      <img type="png">Banido</img>
+      <img type="png">Calcifer</img>
+      <img type="png">Co-Op é mais legal</img>
+      <img type="png">dog</img>
+      <img type="png">Eu_Amo_Latinas</img>
+      <img type="png">I Broke The</img>
+      <img type="png">LargatixaTropical</img>
+      <img type="png">MedaGuarana</img>
+      <img type="png">Nabo</img>
+      <img type="png">Silksong_Guaraná</img>
+      <img type="png">Stitch</img>
+      <img type="png">teemo</img>
     </colecao>
   </posts>
   <!-- Data do grade de imagens de eventos anteriores -->
   <evento>
+    <mesa id="Bunkyo.png">
+      <nome>Feira de Arte e Cultura Pop</nome>
+      <data>27/07/2025</data>
+      <foto type="png">Bunkyo</foto>
+    </mesa>
+    <mesa id="Maid cafe.jpeg">
+      <nome>Maid Café</nome>
+      <data>26/07/2025</data>
+      <foto type="jpeg">Maid cafe</foto>
+    </mesa>
+    <mesa id="El Cabriton.jpeg">
+      <nome>El Cabriton</nome>
+      <data>13/09/2025</data>
+      <foto type="jpeg">El Cabriton</foto>
+    </mesa>
+    <mesa id="shopping1.jpeg">
+      <nome>Shopping</nome>
+      <data>01/08/2025</data>
+      <foto type="jpeg">shopping1</foto>
+    </mesa>
+    <mesa id="Shopping 2.jpeg">
+      <nome>Shopping</nome>
+      <data>02/08/2025</data>
+      <foto type="jpeg">Shopping 2</foto>
+    </mesa>
+    <mesa id="feira.jpeg">
+      <nome>Feira de Artesanato</nome>
+      <data>24/08/2025</data>
+      <foto type="jpeg">feira</foto>
+    </mesa>
     <mesa id="Bunkyo.png">
       <nome>Feira de Arte e Cultura Pop</nome>
       <data>27/07/2025</data>
