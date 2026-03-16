@@ -8,11 +8,17 @@
     font-display: swap;
 }
 
-* {
-    font-family: 'BlueWinter', sans-serif;
+@font-face {
+    font-family: 'Grandstander';
+    src: url('../fonte/Grandstander-clean.ttf') format('truetype'),
+        url('../fonte/Grandstander-clean.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
+}
+
+* {
+    font-family: sans-serif;
     font-size: 1vw;
     padding: 0;
     margin: 0;
@@ -20,8 +26,8 @@
 }
 
 body{
-	background-color: rgb(255, 237, 215);
-    background-image: url("../img/fundo.png");
+	background-color: #ffe0e4;
+    background-image: url("../img/xadrez.png");
     background-size: 100% auto;
 }
 
@@ -34,41 +40,47 @@ h1{
 }
 
 a{
-    color:rgb(180, 121, 91);
+    color:#89c3a8;
 	text-decoration: none;
 	font-size: 2vw;
 }
 
 a:visited{
 	text-decoration: none;
-	color:rgb(180, 121, 91);
+	color:#89c3a8;
 }
 
 a:hover{ 
 	text-decoration: none; 
-	color:rgb(230, 192, 255);
+	color:#ffc0c7;
 }
 
 a:focus{ 
 	text-decoration: none;
-	color:rgb(230, 192, 255);
+	color:#ffc0c7;
 }
 
 a:hover, a:active{
 	text-decoration: none;
-	color:rgb(230, 192, 255);
+	color:#ffc0c7;
 }
 
 /* Estilo do topo das páginas */
 
 .topo{
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 0px 0px 100px 100px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
 	width: 100%;
 	height: 10vw;
 	display: flex;
 	text-align: center;
 	justify-content: center;
 	align-items: center;
-    border-bottom: 0.3vw solid rgb(1, 73, 38);
 }
 
 .topo img{
@@ -77,25 +89,41 @@ a:hover, a:active{
 
 /* Estilo do carrossel de imagens */
 
+
 .colecao-linhas{
-	margin-top: 1vw;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px 16px 0px 0px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.3px);
+    -webkit-backdrop-filter: blur(1.3px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+	margin: 1vw auto;
+    width: 82%;
 }
 
 .colecao-nome{
+    font-family: 'BlueWinter', sans-serif;
+	color: #bdffba;
+    -webkit-text-stroke: 0.1vw #89c3a8; /* width and color */
     background-image: url("../img/madeira.png");
     background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 1vw;
+}
+
+.nome-conteiner{
 	display: flex;
 	text-align: center;
 	justify-content: center;
 	align-items: center;
-	color: rgb(134, 90, 68);
 	margin: 0.5vw;
 }
 
 .colecao-img{
 	text-align: center;
-	border-left: 0.1vw solid bisque;
-	border-right: 0.1vw solid bisque;
+	border-left: 0.1vw solid rgba(255, 255, 255, 0);
+	border-right: 0.1vw solid rgba(255, 255, 255, 0);
 	height: 15vw;
 	width: 15vw;
 }
@@ -121,10 +149,13 @@ a:hover, a:active{
 }
 
 .colecao-img h1{
-	color: rgb(201, 201, 201);
+	color: rgb(235, 235, 235);
 }
 
 .tns-controls{
+    width: 100%;
+    margin-top: 7.5vw;
+    position: absolute;
     display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -132,9 +163,9 @@ a:hover, a:active{
 }
 
 .tns-controls *{
-    margin: 0.2vw 1vw;
+    z-index: 2;
     height: 3vw;
-    width: 3vw;
+    width: 2vw;
     background: none;
     border: none;
     background-image: url("../img/arrow.png");
@@ -142,21 +173,35 @@ a:hover, a:active{
     background-repeat: no-repeat;
 }
 .tns-controls :first-child{
+    margin-left: -3vw;
     -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
+}
+.tns-controls :last-child{
+    
+    margin-right: -3vw;
 }
 
 
 /* Estilo da grade de eventos */
 
 .evento-conteiner{
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px 16px 0px 0px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.3px);
+    -webkit-backdrop-filter: blur(1.3px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
 	/*border-top: 0.3vw solid rgb(1, 73, 38);*/
-    margin-top: 03vw;
+    margin: 3vw auto;
+    width: 82%;
 }
 
 .evento-titulo{
+    font-family: 'BlueWinter', sans-serif;
 	color: rgb(134, 90, 68);
 	text-align: center;
 	margin: 1.2vw;
@@ -199,51 +244,68 @@ a:hover, a:active{
 .evento-img h1{
 	position: relative;
 	top: 70%;
-	color: rgb(201, 201, 201);
+	color:rgb(235, 235, 235);
+
 }
 
 /* Estilo do rodapé */
 
 footer{
+    display: flex;
 	padding: 0.5vw;
-	border-top: 0.3vw solid rgb(1, 73, 38);
+	border-top: 0.3vw solid #1e252c;
     margin-top: 0.3vw;
-	background-color: #263340;
+	background-color: #334352;
 	width: 100%;
 	min-height: 12vw;
 	color: white;
 }
+footer p{
+    font-size: 1vw;
+}
 
-footer h1{
-	color: white;
+h2{
+    font-size: 2vw;
 }
 
 .rodape{
-	display: flex;
-	flex-direction: row;
+    width: 33%;
+	margin: 0.5vw;
 }
 
-.rodape-item{
-	display: flex;
+.rodape li{
+    margin-left: 1.2vw;
 }
 
-.rodape-item img{
-	max-width: 2.6vw;
-	max-height: 2.6vw;
+.rodape-img{
+    text-align: center;
 }
 
-.rodape-item a{
-	color: white;
-	margin-left: 0.3vw;
+.rodape-img img{
+    width: 10vw;
+    height: 10vw;
+}
+
+.informacao{
+    text-align: center;
 }
 
 .restrito{
-	margin-left: auto; 
-	margin-right: 1vw;
-	background-color: #444c53;
-	color: aliceblue;
-	padding: 0.5vw;
-	border-radius: 0.5vw;
+    right: 1vw;
+    margin: 0 1.2vw;
+    position: absolute;
+    width: 2vw;
+    height: 2vw;
+}
+
+.restrito img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.restrito p{
+    font-size: 1.3vw;
 }
 
 /* Estilo das páginas de gerenciamento */
@@ -332,13 +394,16 @@ footer h1{
 	h1{
 		font-size: 5.4vw;
 	}
+    h2{
+        font-size: 3vw;
+    }
 
 	.topo{
 		height: 30vw;
 	}
 
 	.topo img{
-		height: 30vw;
+		height: 29vw;
 	}
 
 	.colecao-img{
@@ -346,13 +411,44 @@ footer h1{
 		width: 40vw;
 	}
 
+    .tns-controls{
+        display: none;
+    }
+
 	.evento-grid{
-		grid-template-columns: repeat(2, 50vw);
+		grid-template-columns: repeat(2, 45vw);
 		gap: 0.1vw;
 	}
 
 	.evento-img{
-		height: 50vw;
+		height: 45vw;
 	}
+
+    .restrito{
+        width: 3vw;
+        height: 3vw;
+    }
+
+    .rodape{
+        text-align: center;
+        width: 100%;
+    }
+
+    footer{
+        align-content: center;
+        display: block;
+    }
+
+    footer ul{
+        list-style-type: none;
+    }
+
+    .rodape li{
+        margin-left: auto;
+    }
+
+    footer p{
+        font-size: 2vw;
+    }
 	
 }

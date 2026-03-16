@@ -17,6 +17,32 @@
 
             return false; // or throw an error
         }
+        function webpImage($source,){
+            $dir = pathinfo($source, PATHINFO_DIRNAME);
+            $name = pathinfo($source, PATHINFO_FILENAME);
+            $destination = $dir . DIRECTORY_SEPARATOR . $name . '.webp';
+            $info = getimagesize($source);
+            $isAlpha = false;
+            if ($info['mime'] == 'image/jpeg')
+                $image = imagecreatefromjpeg($source);
+            elseif ($isAlpha = $info['mime'] == 'image/gif') {
+                $image = imagecreatefromgif($source);
+            } elseif ($isAlpha = $info['mime'] == 'image/png') {
+                $image = imagecreatefrompng($source);
+            } else {
+                return $source;
+            }
+            if ($isAlpha) {
+                imagepalettetotruecolor($image);
+                imagealphablending($image, true);
+                imagesavealpha($image, true);
+            }
+            imagewebp($image, $destination, 100);
+
+            unlink($source);
+
+            return $destination;
+        }
         // ---------------------EXCLUIR-----------------------------  
 
             if(isset($_POST["submitExcluir"])){
@@ -93,42 +119,42 @@
 
                         $check = getimagesize($temp);
                         if($check !== false) {
-                        echo "Imagem ". $name ." foi processada. <br>";
+                        echo "Imagem ". $name ." foi processada. </br>";
                         $uploadOk = 1;
                         } else {
-                        echo "Arquivo <b>". $name ."</b> não é uma imagem. <br>";
+                        echo "Arquivo <b>". $name ."</b> não é uma imagem. </br>";
                         $uploadOk = 0;
                         }
 
                         // Checa se a imagem já existe
                         if (file_exists($target_file)) {
-                            echo "Arquivo <b>". $name ."</b> já existe no banco de dados. <br>";
+                            echo "Arquivo <b>". $name ."</b> já existe no banco de dados. </br>";
                             $uploadOk = 0;
                         }
 
                         // Checa o tamanho do arquivo
                         if ($size > 5120000) {
-                            echo "Arquivo <b>". $name ."</b> é muito grande, máximo permitido de 5MB. <br>";
+                            echo "Arquivo <b>". $name ."</b> é muito grande, máximo permitido de 5MB. </br>";
                             $uploadOk = 0;
                         }
 
                         // Define quais formatos de arquivos são aceitos
                         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-                        && $imageFileType != "gif" ) {
-                            echo "Apenas arquivos no formato JPG, JPEG, PNG e GIF são permitidos. <br>";
+                        && $imageFileType != "gif" && $imageFileType != "webp" ) {
+                            echo "Apenas arquivos no formato JPG, JPEG, PNG e GIF são permitidos. </br>";
                             $uploadOk = 0;
                         }
 
                         // Checa se o $uploadOk foi definido pra 0 por algum erro
                         if ($uploadOk == 0) {
-                            echo "Erro, arquivo <b>". $name ."</b> não foi enviado. <br>";
+                            echo "Erro, arquivo <b>". $name ."</b> não foi enviado. </br>";
                         
                         // Se tudo estiver ok, tenta enviar o arquivo
                         } else {
                             if (move_uploaded_file($temp, $target_file)) {
                             echo " > O arquivo <b>". htmlspecialchars( basename($name)). "</b> da coleção <b>". $_POST['colecao'] ."</b> foi enviado com sucesso! <br><br>";
                             } else {
-                            echo "<br>Erro ao enviar arquivo. <br>";
+                            echo "<br>Erro ao enviar arquivo. </br>";
                             }
                         }
                     }
@@ -230,7 +256,7 @@
 
                         // Define quais formatos de arquivos são aceitos
                         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-                        && $imageFileType != "gif" ) {
+                        && $imageFileType != "gif" && $imageFileType != "webp" ) {
                             echo "Apenas arquivos no formato JPG, JPEG, PNG e GIF são permitidos. <br>";
                             $uploadOk = 0;
                         }

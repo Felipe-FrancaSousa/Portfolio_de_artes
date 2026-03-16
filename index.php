@@ -1,8 +1,13 @@
 <?php $titulo = "Artes" ;?>
 <?php include_once("templates/header.php");?>
     <main>
+        <div class="restrito">
+             <a href="<?=$BASE_URL?>login.php">
+                <img src="img/editar.png" alt="Editar">
+            </a>
+        </div>
         <!-- Seção para as coleções de artes -->
-        <section> 
+        <section>
             <!-- Cria o carrossel de imagens, variável $i é usado para conseguir criar vários carrosseis TinySlider2 na página -->
             <?php $i = 0; foreach($xml->posts->colecao as $colecao):?>
                 <script type="module">
@@ -10,6 +15,7 @@
                         container: '.my-slider<?= $i ?>',
                         items: 2, // Quantidade de itens que são exibidos ao mesmo tempo
                         slideBy: 2,
+                        Lazyload: true,
                         touch: true,
                         autoplay: true,
                         autoWidth:true,
@@ -17,7 +23,6 @@
                         autoplayButtonOutput: false, // Seta visibilidade do botão de auto play
                         controls: true, // seta visibilidade das setas de controle
                         controlsText: ["",""],
-                        controlsPosition: "Bottom",
                         nav: false, // Seta visibilidade da navegação (3 pontinhos)
                         responsive:{
                             500:{
@@ -28,11 +33,13 @@
                 </script>
                 <!-- Puxa o nome da coleção do XML --> 
                 <div class="colecao-linhas">
-                       <h1 class="colecao-nome"><?=$colecao->nome?></h1>
+                    <div class="nome-conteiner">
+                        <h1 class="colecao-nome"><?=$colecao->nome?></h1>
+                    </div>
                     <!-- Cria o conteudo dos carrosseis -->
                     <div class="my-slider<?= $i?>" >
                         <?php foreach($colecao->img as $arquivo):?>
-                            <div class="colecao-img" style ="background: url(<?=$BASE_URL?>data/artes/<?= str_replace(' ','_',$colecao->nome)?>/<?= str_replace(' ', '%20', $arquivo)?>.<?=$arquivo['type']?>);background-size:100% 100%;" >
+                            <div class="colecao-img" style ="background: url(<?=$BASE_URL?>data/artes/<?= str_replace(' ','_',$colecao->nome)?>/<?= str_replace(' ', '%20', $arquivo)?>.<?=$arquivo['type']?>);background-size:100% 100%;background-repeat: no-repeat;" >
                                 <a href="<?=$BASE_URL?>data/artes/<?= str_replace(' ','_',$colecao->nome)?>/<?= str_replace(' ', '%20', $arquivo)?>.<?=$arquivo['type']?>" data-lightbox="<?=$colecao->nome?>" data-title="<?=$arquivo?>" draggable="false">
                                     <!-- Cria o overlay com o nome da imagem --> 
                                     <div class = "colecao-img-overlay">
@@ -48,7 +55,9 @@
         <!-- Seção para os eventos anteriores -->
         <section>
             <div class="evento-conteiner">
-                <h1 class="evento-titulo">Eventos já participados: </h1>
+                <div class="nome-conteiner">
+                    <h1 class="colecao-nome">Eventos já participados: </h1>
+                </div>
                 <div class="evento-grid">
                     <?php foreach($xml->evento->mesa as $mesas):?>
                         <div class="evento-img" style ="background: url(<?=$BASE_URL?>data/eventos/<?= str_replace(' ', '%20', $mesas->foto)?>.<?=$mesas->foto['type']?>);

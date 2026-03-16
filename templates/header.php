@@ -16,7 +16,7 @@
 <script src="<?= $BASE_URL ?>/helpers/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <header>
-        <div class="topo" style ="background: url(<?= $BASE_URL ?>img/banner.jpg);background-size:100% 100%;">
-            <img src="<?= $BASE_URL ?>img/logo.jpeg" alt="Logo">
+        <div class="topo">
+            <img src="<?= $BASE_URL ?>img/logo.webp" alt="Logo">
         </div>
     </header>
