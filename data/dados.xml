@@ -148,4 +148,9 @@
       <foto type="jpeg">feira</foto>
     </mesa>
   </evento>
+  <!-- Data do sobre mim -->
+  <sobre>
+    <foto type="webp">Eu</foto>
+    <texto>Tenho 27 anos, moro em São Paulo e sou apaixonada por artes fofas, engraçadas e cheias de personalidade! Meu trabalho é inspirado no universo dos memes, do humor leve e das fanarts que aquecem o coração. Amo transformar momentos do dia a dia e referências da cultura pop em ilustrações divertidas e cativantes. Se for fofo e causar risadas, pode apostar que vai aparecer na minha mesa!</texto>
+  </sobre>
 </root>

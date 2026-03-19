@@ -1,5 +1,5 @@
 <?php $titulo = "Gerenciamento" ;?>
-<?php include_once("templates/header.php");?>    
+<?php include_once("templates/header.php");?>
     <main>
         <script type="application/javascript">
             function alterarForm(selecao){
@@ -60,12 +60,12 @@
             </form>
         </div>
 
-
         <!-- Gerenciamento de eventos -->
         <div class="ferramentas">
+            <h1>Gerenciamento dos eventos anteriores</h1>
             <!--Inclusão-->
             <form action="gerenciaEvento.php" method="post" enctype="multipart/form-data">
-                <h1>Selecionar foto de evento anterior para upload:</h1>
+                <h2>Selecionar foto de evento anterior para upload:</h2>
                 <p>Nome do evento: <input type="text" name="nomeEvento" id="nomeEvento" required></p>
                 <p>Data do evento: <input type="date" name="date" id="date" required></p>
                 <p>Foto: <input type="file" name="foto" id="foto" required></p>
@@ -91,10 +91,23 @@
                 </select>
                 <p><input type="submit" value="Excluir" name="submitExclude"></p>
             </form>
+
         </div>
+
+    <!-- Gerenciamento do sobre -->
+        <div class="ferramentas">
+            <h1>Gerenciamento do "Sobre mim"</h1>
+            <form action="gerenciaSobre.php" method="post" enctype="multipart/form-data">
+                <h2>Selecione uma foto:</h2>
+                <p>Foto: <input type="file" name="foto" id="foto" required></p>
+                <p>Modifique o texto</p>
+                <textarea style="margin-top: 1vw;" name="texto" id="texto" cols="30" rows="10"></textarea>
+                <br>
+                <input type="submit" value="Enviar">
+            </form>
         </div>
-            <div class="voltar">
-                <a href="<?=$BASE_URL?>/index.php"><h1>Voltar</h1></a>
-            </div>
+        <div class="voltar">
+            <a href="<?=$BASE_URL?>/index.php"><h1>Voltar</h1></a>
+        </div>
     </main>
-</body>
+<?php include_once("templates/footer.php");?>

@@ -141,7 +141,7 @@
                         // Define quais formatos de arquivos são aceitos
                         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                         && $imageFileType != "gif" && $imageFileType != "webp" ) {
-                            echo "Apenas arquivos no formato JPG, JPEG, PNG e GIF são permitidos. </br>";
+                            echo "Apenas arquivos no formato JPG, JPEG, PNG, WEBP e GIF são permitidos. </br>";
                             $uploadOk = 0;
                         }
 
@@ -325,4 +325,4 @@
         <a href="<?=$BASE_URL?>reservado.php"><h1>Voltar</h1></a>
     </div>
 </main>
-</body>
+<?php include_once("templates/footer.php");?>

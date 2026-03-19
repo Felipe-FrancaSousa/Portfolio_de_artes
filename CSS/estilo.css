@@ -1,8 +1,8 @@
 @charset "utf-8";
 @font-face {
     font-family: 'BlueWinter';
-    src: url('../fonte/BlueWinter.ttf') format('truetype'),
-        url('../fonte/BlueWinter.otf') format('opentype');
+    src: url('../fonte/BlueWinter.otf') format('opentype'),
+         url('../fonte/BlueWinter.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -10,26 +10,24 @@
 
 @font-face {
     font-family: 'Grandstander';
-    src: url('../fonte/Grandstander-clean.ttf') format('truetype'),
-        url('../fonte/Grandstander-clean.otf') format('opentype');
+    src: url('../fonte/Grandstander-clean.otf') format('opentype'),
+         url('../fonte/Grandstander-clean.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 * {
-    font-family: sans-serif;
-    font-size: 1vw;
+    font-family: 'Grandstander', sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
 body{
-	background-color: #ffe0e4;
-    background-image: url("../img/xadrez.png");
-    background-size: 100% auto;
+    background-color: #FAF3E1;
 }
+
 
 p{
 	font-size: 1.3vw;
@@ -40,19 +38,16 @@ h1{
 }
 
 a{
-    color:#89c3a8;
 	text-decoration: none;
-	font-size: 2vw;
+    color: white;
 }
 
 a:visited{
 	text-decoration: none;
-	color:#89c3a8;
 }
 
 a:hover{ 
 	text-decoration: none; 
-	color:#ffc0c7;
 }
 
 a:focus{ 
@@ -65,18 +60,29 @@ a:hover, a:active{
 	color:#ffc0c7;
 }
 
+input[type="submit"]{
+    padding: 0.5vw;
+	background-color: #444c53;
+    color: white;
+}
+
+input[type="submit"]:hover{
+    color:#ffc0c7;
+}
+
 /* Estilo do topo das páginas */
 
 .topo{
     /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 0px 0px 100px 100px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(1.5px);
-    -webkit-backdrop-filter: blur(1.5px);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-	width: 100%;
+    background: #fcd4d9 ;
+    border-radius: 0vw 0vw 100vw 100vw;
+    box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.078vw);
+    -webkit-backdrop-filter: blur(0.078vw);
+    border: 0.1vw solid rgba(255, 112, 129, 0.35);
+	width: 30%;
 	height: 10vw;
+    margin: 0 auto;
 	display: flex;
 	text-align: center;
 	justify-content: center;
@@ -84,7 +90,7 @@ a:hover, a:active{
 }
 
 .topo img{
-	height: 9vw;
+	height: 12vw;
 }
 
 /* Estilo do carrossel de imagens */
@@ -93,23 +99,23 @@ a:hover, a:active{
 .colecao-linhas{
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.04);
-    border-radius: 16px 16px 0px 0px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(1.3px);
-    -webkit-backdrop-filter: blur(1.3px);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 0.8vw 0.8vw 0vw 0vw;
+    box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.078vw);
+    -webkit-backdrop-filter: blur(0.078vw);
+    border: 0.2vw solid rgba(255, 192, 199, 0.35);
 	margin: 1vw auto;
     width: 82%;
 }
 
-.colecao-nome{
+.titulo{
     font-family: 'BlueWinter', sans-serif;
 	color: #bdffba;
     -webkit-text-stroke: 0.1vw #89c3a8; /* width and color */
     background-image: url("../img/madeira.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    padding: 1vw;
+    padding: 1vw 2.5vw;
 }
 
 .nome-conteiner{
@@ -122,16 +128,16 @@ a:hover, a:active{
 
 .colecao-img{
 	text-align: center;
-	border-left: 0.1vw solid rgba(255, 255, 255, 0);
-	border-right: 0.1vw solid rgba(255, 255, 255, 0);
-	height: 15vw;
+    height: 15vw;
 	width: 15vw;
+    border-left: 0.2vw solid rgba(255, 255, 255, 0);
+	border-right: 0.2vw solid rgba(255, 255, 255, 0);
 }
 
 .colecao-img-overlay{
 	opacity: 0;
-	max-width: 100%;
-	height: 100%;
+	height: 15vw;
+	width: 15vw;
 	transition: 0.5s;
 	position:relative;
 }
@@ -143,7 +149,7 @@ a:hover, a:active{
 
 .colecao-img span{
 	position: absolute;
-    bottom: 0;
+    bottom: 1vw;
 	right: 0;
 	left: 0;
 }
@@ -165,12 +171,13 @@ a:hover, a:active{
 .tns-controls *{
     z-index: 2;
     height: 3vw;
-    width: 2vw;
+    width: 4vw;
     background: none;
     border: none;
     background-image: url("../img/arrow.png");
-    background-size: 100% 100%;
+    background-size: 50% 100%;
     background-repeat: no-repeat;
+    background-position: right;
 }
 .tns-controls :first-child{
     margin-left: -3vw;
@@ -179,9 +186,18 @@ a:hover, a:active{
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 }
+.tns-controls :first-child:hover{
+    transition: all 0.1s;
+    margin-left: -4vw;
+}
+
 .tns-controls :last-child{
-    
     margin-right: -3vw;
+}
+
+.tns-controls :last-child:hover{
+    transition: all 0.1s;
+    margin-right: -4vw;
 }
 
 
@@ -190,21 +206,13 @@ a:hover, a:active{
 .evento-conteiner{
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.04);
-    border-radius: 16px 16px 0px 0px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(1.3px);
-    -webkit-backdrop-filter: blur(1.3px);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-	/*border-top: 0.3vw solid rgb(1, 73, 38);*/
-    margin: 3vw auto;
+    border-radius: 0.8vw 0.8vw 0vw 0vw;
+    box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.078vw);
+    -webkit-backdrop-filter: blur(0.078vw);
+    border: 0.1vw solid rgba(255, 255, 255, 0.35);
+    margin: 10vw auto;
     width: 82%;
-}
-
-.evento-titulo{
-    font-family: 'BlueWinter', sans-serif;
-	color: rgb(134, 90, 68);
-	text-align: center;
-	margin: 1.2vw;
 }
 
 .evento-grid{
@@ -236,7 +244,7 @@ a:hover, a:active{
 
 .evento-img span{
 	position: absolute;
-    bottom: 0;
+    bottom: 0.5vw;
 	right: 0;
 	left: 0;
 }
@@ -248,16 +256,112 @@ a:hover, a:active{
 
 }
 
+/* Estilo do sobre */
+
+.sobre-conteiner{
+    margin: 0 auto;
+    width: 70%;
+    padding: 1vw;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 0.8vw;
+    box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.078vw);
+    -webkit-backdrop-filter: blur(0.078vw);
+    border: 0.2vw solid rgba(255, 192, 199, 0.35);
+}
+
+.sobre-conteudo{
+    margin-top: 2.5vw;
+    display: flex;
+}
+
+.sobre-foto{
+    margin: 0 1vw;
+    height: 20vw;
+    width: 150vw;
+}
+
+.sobre-foto img{
+    border: 0.2vw solid rgba(255, 192, 199, 0.35);
+    border-radius: 0.5vw;
+    height: 100%;
+    width: 100%;
+}
+
+.sobre-texto{
+    color: #bb7953;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+    text-align: center;
+    width: 300vw;
+    min-height: 20vw;
+    padding: 0.3vw;
+    margin: 0 1vw;
+    background: #FFFBF1;
+    border-radius: 0.8vw;
+    box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
+    border: 0.1vw solid rgba(255, 112, 129, 0.35);
+}
+
+.sobre-lista h2{
+    color: #864b1f;
+}
+s
+.sobre-texto p{
+    color: #bb7953;
+    font-size: 1.05vw;
+    margin-bottom: 0.5vw;
+}
+
+.sobre-link{
+	text-decoration: none;
+    color: #bb7953; 
+}
+
+.sobre-link:visited{
+	text-decoration: none;
+}
+
+.sobre-link:hover{ 
+	text-decoration: none; 
+}
+
+.sobre-link:focus{ 
+	text-decoration: none;
+	color:#ffc0c7;
+}
+
+.sobre-link:hover, .sobre-link:active{
+	text-decoration: none;
+	color:#ffc0c7;
+}
+
+.sobre-lista{
+    text-align: center;
+    margin: 1.2vw auto;
+    width: 99%;
+}
+
+.sobre-lista li{
+    color: #bb7953;
+    margin-left: 1vw;
+    margin-bottom: 0.5vw;
+    font-size: 1vw;
+    list-style: none;
+}
+
 /* Estilo do rodapé */
 
 footer{
-    display: flex;
 	padding: 0.5vw;
 	border-top: 0.3vw solid #1e252c;
     margin-top: 0.3vw;
 	background-color: #334352;
 	width: 100%;
-	min-height: 12vw;
+	min-height: 7vw;
 	color: white;
 }
 footer p{
@@ -269,12 +373,8 @@ h2{
 }
 
 .rodape{
+    margin: 0.5vw auto;
     width: 33%;
-	margin: 0.5vw;
-}
-
-.rodape li{
-    margin-left: 1.2vw;
 }
 
 .rodape-img{
@@ -282,8 +382,8 @@ h2{
 }
 
 .rodape-img img{
-    width: 10vw;
-    height: 10vw;
+    width: 5vw;
+    height: 5vw;
 }
 
 .informacao{
@@ -291,46 +391,62 @@ h2{
 }
 
 .restrito{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+    background-color: #89c3a891;
     right: 1vw;
-    margin: 0 1.2vw;
+    margin:1.2vw;
     position: absolute;
-    width: 2vw;
-    height: 2vw;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 2vw;
 }
 
 .restrito img{
-    width: 100%;
-    height: 100%;
+    width: 70%;
+    height: 70%;
 }
 
-
-.restrito p{
-    font-size: 1.3vw;
+.restrito a{
+    text-align: center;
 }
 
 /* Estilo das páginas de gerenciamento */
 
 .ferramentas{
-	margin: 0.5vw;
-    border-bottom: solid #263340 3px;
-    border-radius: 5px ;
+    padding: 2vw;
+    width: 90%;
+	margin: 0.5vw auto;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 0.8vw;
+    box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.078vw);
+    -webkit-backdrop-filter: blur(0.078vw);
+    border: 0.2vw solid rgba(255, 192, 199, 0.35);
 }
 .ferramentas p{
-    margin-top: 5px;
-    margin-left: 10px;
+    margin-top: 0.3vw;
+    margin-left: 0.5vw;
+}
+.ferramentas h1{
+    text-align: center;
 }
 .ferramentas h1,h2{
-    margin-bottom: 6px;
+    margin-bottom: 0.5vw;
 }
 .ferramentas input[type=submit]{
-    margin-left: -10px;
+    margin-left: -0.5vw;
 }
 
 .voltar{
 	padding: 0.5vw;
 	background-color: #444c53;
-	display: inline-block;
-	margin: 1vw;
+    right: 1vw;
+    margin: 0.5vw 1.2vw;
+    position: absolute;
 	border-radius: 0.5vw;
 }
 
@@ -340,6 +456,7 @@ h2{
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+    margin-bottom: 3.8vw;
 }
 
 .login{
@@ -383,9 +500,6 @@ h2{
 /* Responsividade */
 
 @media screen and (max-width: 500px) {
-	a{
-		font-size: 4vw;
-	}
 
 	p{
 		font-size: 3vw;
@@ -399,12 +513,30 @@ h2{
     }
 
 	.topo{
+        width: 70%;
 		height: 30vw;
+        border-radius: 0vw 0vw 20vw 20vw;
+        margin-bottom: 10vw;
 	}
 
 	.topo img{
-		height: 29vw;
+		height: 35vw;
 	}
+
+    .colecao-linhas{
+        overflow: hidden;
+        padding-top: 0.5vw;
+        border-radius: 5vw 5vw 0vw 0vw;
+    }
+
+    .evento-conteiner{
+       border-radius: 5vw 5vw 0vw 0vw; 
+    }
+
+    .titulo{
+        font-size: 4vw;
+        margin-bottom: 2vw;
+    }
 
 	.colecao-img{
 		height: 40vw;
@@ -416,17 +548,43 @@ h2{
     }
 
 	.evento-grid{
-		grid-template-columns: repeat(2, 45vw);
-		gap: 0.1vw;
+		grid-template-columns: repeat(2, 38vw);
+		gap: 1vw;
+        padding-bottom: 1vw;
 	}
 
 	.evento-img{
-		height: 45vw;
+		height: 38vw;
 	}
 
+    .sobre-conteiner{
+        width: 90vw;
+    }
+
+    .sobre-foto{
+        height: 30vw;
+    }
+
+    .sobre-texto p{
+        font-size: 2vw;
+    }
+
+    .sobre-lista{
+        margin-top: 3vw;
+    }
+
     .restrito{
-        width: 3vw;
-        height: 3vw;
+        width: 4vw;
+        height: 4vw;
+    }
+
+    .restrito a{
+        font-size: 1vw;
+    }
+
+    .restrito img{
+        width: 60%;
+        height: 60%;
     }
 
     .rodape{
@@ -434,20 +592,21 @@ h2{
         width: 100%;
     }
 
+    .rodape img{
+        width: 10vw;
+        height: 10vw;
+    }
+
     footer{
         align-content: center;
         display: block;
     }
 
-    footer ul{
-        list-style-type: none;
-    }
-
-    .rodape li{
-        margin-left: auto;
-    }
-
     footer p{
+        font-size: 2vw;
+    }
+
+    footer a{
         font-size: 2vw;
     }
 	

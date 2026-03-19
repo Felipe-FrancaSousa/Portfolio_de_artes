@@ -12,11 +12,11 @@
     <title>Largatixa Tropical - <?=$titulo?></title>
     <link rel="icon" type="image/x-icon" href="<?=$BASE_URL?>img/largatixa.ico">
 </head>
-<body>
+<body>  
 <script src="<?= $BASE_URL ?>/helpers/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <header>
         <div class="topo">
-            <img src="<?= $BASE_URL ?>img/logo.webp" alt="Logo">
+            <img src="<?= $BASE_URL ?>img/Largatoxa.png" alt="Logo">
         </div>
     </header>

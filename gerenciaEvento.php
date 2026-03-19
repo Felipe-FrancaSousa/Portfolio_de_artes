@@ -78,8 +78,8 @@
 
                 // Define quais formatos de arquivos são aceitos
                 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-                && $imageFileType != "gif" ) {
-                echo "Apenas arquivos no formato JPG, JPEG, PNG e GIF são permitidos. <br>";
+                && $imageFileType != "webp" ) {
+                echo "Apenas arquivos no formato JPG, JPEG, PNG e WEBP são permitidos. <br>";
                 $uploadOk = 0;
                 }
 
@@ -141,4 +141,4 @@
         </div>
     </div>
 </main>
-</body>
+<?php include_once("templates/footer.php");?>

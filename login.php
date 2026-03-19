@@ -8,7 +8,7 @@
                 <form action="?" method="post">
                     <p>Senha: <input type="password" name="senha" id="senha" required></p>
                     <br>
-                    <input type="submit" value="enviar" name="enviar">
+                    <input type="submit" value="Enviar" name="Enviar">
                 </form>
                 <br>
                 <p id="msg"></p>
@@ -31,4 +31,4 @@ if(isset($_POST['senha'])){
     }
 }
 ?>
-</body>
+<?php include_once("templates/footer.php");?>
