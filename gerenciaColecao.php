@@ -17,12 +17,14 @@
 
             return false; // or throw an error
         }
+        
         function webpImage($source,){
             $dir = pathinfo($source, PATHINFO_DIRNAME);
             $name = pathinfo($source, PATHINFO_FILENAME);
             $destination = $dir . DIRECTORY_SEPARATOR . $name . '.webp';
             $info = getimagesize($source);
             $isAlpha = false;
+
             if ($info['mime'] == 'image/jpeg')
                 $image = imagecreatefromjpeg($source);
             elseif ($isAlpha = $info['mime'] == 'image/gif') {
@@ -87,7 +89,7 @@
                                 }
                             }
                             rmdir("data/artes/$excluirDD");
-                            echo "<p>Coleção ".$excluirDD." foi excluida.<p>";
+                            echo "<br><br><h1>Coleção ".$excluirDD." foi excluida com sucesso!.<br><br><h1>";
                         }
 
                     }
@@ -110,7 +112,7 @@
 
                         $target_dir = "data/artes/";
                         $target_file = $target_dir . basename($name);
-                        $uploadOk = 1;
+                        $uploadOk = false;
                         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
                         $imageName = basename($_FILES['arquivo']['name'][$i], (".".$imageFileType));
 
@@ -119,48 +121,40 @@
 
                         $check = getimagesize($temp);
                         if($check !== false) {
-                        echo "Imagem ". $name ." foi processada. </br>";
-                        $uploadOk = 1;
+                            $uploadOk = true;
                         } else {
                         echo "Arquivo <b>". $name ."</b> não é uma imagem. </br>";
-                        $uploadOk = 0;
+                            $uploadOk = false;
                         }
 
                         // Checa se a imagem já existe
                         if (file_exists($target_file)) {
                             echo "Arquivo <b>". $name ."</b> já existe no banco de dados. </br>";
-                            $uploadOk = 0;
+                            $uploadOk = false;
                         }
 
                         // Checa o tamanho do arquivo
                         if ($size > 5120000) {
                             echo "Arquivo <b>". $name ."</b> é muito grande, máximo permitido de 5MB. </br>";
-                            $uploadOk = 0;
+                            $uploadOk = false;
                         }
 
                         // Define quais formatos de arquivos são aceitos
                         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                         && $imageFileType != "gif" && $imageFileType != "webp" ) {
                             echo "Apenas arquivos no formato JPG, JPEG, PNG, WEBP e GIF são permitidos. </br>";
-                            $uploadOk = 0;
+                            $uploadOk = false;
                         }
 
                         // Checa se o $uploadOk foi definido pra 0 por algum erro
-                        if ($uploadOk == 0) {
-                            echo "Erro, arquivo <b>". $name ."</b> não foi enviado. </br>";
+                        if (!$uploadOk) {
+                            echo "</br> Erro, arquivo <b>". $name ."</b> não foi enviado. </br>";
                         
-                        // Se tudo estiver ok, tenta enviar o arquivo
-                        } else {
-                            if (move_uploaded_file($temp, $target_file)) {
-                            echo " > O arquivo <b>". htmlspecialchars( basename($name)). "</b> da coleção <b>". $_POST['colecao'] ."</b> foi enviado com sucesso! <br><br>";
-                            } else {
-                            echo "<br>Erro ao enviar arquivo. </br>";
-                            }
                         }
                     }
 
                     // Se o arquivo da foto estiver ok, as informações são gravadas no XML
-                    if($uploadOk == 1){
+                    if($uploadOk){
 
                         $id = str_replace(' ', '_', $_POST['colecao']);
 
@@ -204,11 +198,19 @@
                             $img->setAttribute('type', $imageFileType);
 
                             //Transfere as imagens para a pasta final
-                            rename("$target_dir$name", "$target_dir$id/$name");
+                            if (move_uploaded_file($temp, $target_file)) {
+                                rename("$target_dir$name", "$target_dir$id/$name");
+                                echo " > O arquivo <b>". htmlspecialchars( basename($name)). "</b> da coleção <b>". $_POST['colecao'] ."</b> foi enviado com sucesso! <br><br>";
+                            } else {
+                                echo "<br>Erro ao enviar arquivo. </br>";
+                                $uploadOk = false;
+                            }
                         }
                         // Salva o arquivo usando o DOMDocument para manter a formatação
                         $dom->save('data/dados.xml') or die('XML Create Error');
                         echo "<br><br><h1>Envio finalizado com sucesso!</h1><br>";
+                    }else{
+                        echo "<br><br><h1>Envio cancelado.</h1><br>";
                     }
                 }
             }
@@ -235,11 +237,10 @@
 
                         $check = getimagesize($temp);
                         if($check !== false) {
-                        echo "Imagem ". $name ." foi processada. <br>";
-                        $uploadOk = 1;
+                            $uploadOk = 1;
                         } else {
                         echo "Arquivo <b>". $name ."</b> não é uma imagem. <br>";
-                        $uploadOk = 0;
+                            $uploadOk = 0;
                         }
 
                         // Checa se a imagem já existe
@@ -257,21 +258,15 @@
                         // Define quais formatos de arquivos são aceitos
                         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                         && $imageFileType != "gif" && $imageFileType != "webp" ) {
-                            echo "Apenas arquivos no formato JPG, JPEG, PNG e GIF são permitidos. <br>";
+                            echo "Apenas arquivos no formato JPG, JPEG, PNG, GIF e WEBP são permitidos. <br>";
                             $uploadOk = 0;
                         }
 
                         // Checa se o $uploadOk foi definido pra 0 por algum erro
                         if ($uploadOk == 0) {
-                            echo "Erro, arquivo <b>". $name ."</b> não foi enviado. <br>";
+                            echo " > Erro, arquivo <b>". $name ."</b> não foi enviado. <br>";
                         
                         // Se tudo estiver ok, tenta enviar o arquivo
-                        } else {
-                            if (move_uploaded_file($temp, $target_file)) {
-                            echo " > O arquivo <b>". htmlspecialchars( basename($name)). "</b> da coleção <b>". $_POST['incluirDD'] ."</b> foi enviado com sucesso! <br><br>";
-                            } else {
-                            echo "<br>Erro ao enviar arquivo. <br>";
-                            }
                         }
                     }
 
@@ -299,7 +294,7 @@
                                     $temp = $_FILES['arquivo']['tmp_name'][$i];
                                     $error = $_FILES['arquivo']['error'][$i];
 
-                                    $target_dir = "data/artes/";
+                                    $target_dir = "data/artes/".$incluirDD."/";
                                     $target_file = $target_dir . basename($name);
                                     $uploadOk = 1;
                                     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -309,12 +304,21 @@
                                     $img = $dom->createElement('img', $imageName);
                                     $colecao->appendChild($img);
                                     $img->setAttribute('type', $imageFileType);
+
+                                    if (move_uploaded_file($temp, $target_file)) {
+                                        echo " > O arquivo <b>". htmlspecialchars( basename($name)). "</b> da coleção <b>". $_POST['incluirDD'] ."</b> foi enviado com sucesso! <br><br>";
+                                    } else {
+                                        echo "<br> > Erro ao enviar arquivo. <br>";
+                                    }
                                 }
                             }
                         }
+
                         // Salva o arquivo usando o DOMDocument para manter a formatação
                         $dom->save('data/dados.xml') or die('XML Create Error');
                         echo "<br><br><h1>Envio finalizado com sucesso!</h1><br>";
+                    }else{
+                        echo "<br><br><h1>Envio cancelado.</h1><br>";
                     }
                 }
             }
@@ -322,7 +326,7 @@
         ?>
     </div>
     <div class="voltar">
-        <a href="<?=$BASE_URL?>reservado.php"><h1>Voltar</h1></a>
+        <a href="<?=$BASE_URL?>gerenciamento.php"><h1>Voltar</h1></a>
     </div>
 </main>
 <?php include_once("templates/footer.php");?>

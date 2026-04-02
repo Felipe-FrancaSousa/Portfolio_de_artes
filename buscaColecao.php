@@ -1,4 +1,4 @@
-<?php include_once("helpers/url.php");?> 
+<?php include_once("helpers/url.php");?>
 <?php
     $valor = $_GET['colecao'];
 ?>              

@@ -21,7 +21,7 @@
 <?php
 if(isset($_POST['senha'])){
     if($_POST['senha'] == $pw){
-        header("Location: ".$BASE_URL."/reservado.php");
+        header("Location: ".$BASE_URL."gerenciamento.php");
         die();
     }
     else{

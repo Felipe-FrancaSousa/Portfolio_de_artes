@@ -70,6 +70,16 @@ input[type="submit"]:hover{
     color:#ffc0c7;
 }
 
+input[type="button"]{
+    padding: 0.5vw;
+	background-color: #444c53;
+    color: white;
+}
+
+input[type="button"]:hover{
+    color:#ffc0c7;
+}
+
 /* Estilo do topo das páginas */
 
 .topo{
@@ -77,8 +87,6 @@ input[type="submit"]:hover{
     background: #fcd4d9 ;
     border-radius: 0vw 0vw 100vw 100vw;
     box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(0.078vw);
-    -webkit-backdrop-filter: blur(0.078vw);
     border: 0.1vw solid rgba(255, 112, 129, 0.35);
 	width: 30%;
 	height: 10vw;
@@ -101,8 +109,6 @@ input[type="submit"]:hover{
     background: rgba(255, 255, 255, 0.04);
     border-radius: 0.8vw 0.8vw 0vw 0vw;
     box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(0.078vw);
-    -webkit-backdrop-filter: blur(0.078vw);
     border: 0.2vw solid rgba(255, 192, 199, 0.35);
 	margin: 1vw auto;
     width: 82%;
@@ -159,7 +165,7 @@ input[type="submit"]:hover{
 }
 
 .tns-controls{
-    width: 100%;
+    width: 81.7%;
     margin-top: 7.5vw;
     position: absolute;
     display: flex;
@@ -208,8 +214,6 @@ input[type="submit"]:hover{
     background: rgba(255, 255, 255, 0.04);
     border-radius: 0.8vw 0.8vw 0vw 0vw;
     box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(0.078vw);
-    -webkit-backdrop-filter: blur(0.078vw);
     border: 0.1vw solid rgba(255, 255, 255, 0.35);
     margin: 10vw auto;
     width: 82%;
@@ -266,8 +270,6 @@ input[type="submit"]:hover{
     background: rgba(255, 255, 255, 0.04);
     border-radius: 0.8vw;
     box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(0.078vw);
-    -webkit-backdrop-filter: blur(0.078vw);
     border: 0.2vw solid rgba(255, 192, 199, 0.35);
 }
 
@@ -423,8 +425,6 @@ h2{
     background: rgba(255, 255, 255, 0.04);
     border-radius: 0.8vw;
     box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(0.078vw);
-    -webkit-backdrop-filter: blur(0.078vw);
     border: 0.2vw solid rgba(255, 192, 199, 0.35);
 }
 .ferramentas p{

@@ -73,7 +73,7 @@
                                 <div class = "evento-img-overlay">
                                     <span>
                                         <h1><?php echo $mesas->nome?></h1>
-                                        <h1><?php echo $mesas->data?></h1>
+                                        <h1><?php $array = explode("/",$mesas->data); $formatado = $array[1]."/".$array[2];;  echo $formatado?></h1>
                                     </span>
                                 </div>
                             </a>
