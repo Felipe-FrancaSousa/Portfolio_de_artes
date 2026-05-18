@@ -23,11 +23,17 @@
                 document.getElementById(id).style.position = "relative";
             }
 
-            function botao(id){
+           function atualizarColecao(selecao){
+                const valor = selecao.value;
 
+                fetch("buscaEditar.php?colecao=" + valor)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("editarEvento").innerHTML = data;
+                    });
             }
             
-            function atualizarColecao(selecao){
+            function atualizarEvento(selecao){
                 const valor = selecao.value;
 
                 fetch("buscaEvento.php?evento=" + valor)
@@ -80,6 +86,9 @@
                     <div id="excluir">
                     </div>
                 <p><input type="submit" value="excluir" name="submitExcluir"></p>
+                
+                <div id="editarColecao" style="margin-top:1vw;">
+                </div>
             </form>
         </div>
 
@@ -105,7 +114,7 @@
                     <div class="excluirEvento-grid">
                         <?php foreach($xml->evento->mesa as $mesa):?>
                             <div class="excluirEvento-opcao">
-                                <input type='radio' name='eventoRD' id='<?=$mesa['id']?>' value='<?=$mesa['id']?>' required onchange="atualizarColecao(this)">
+                                <input type='radio' name='eventoRD' id='<?=$mesa['id']?>' value='<?=$mesa['id']?>' required onchange="atualizarEvento(this)">
                                 <label for='<?=$mesa['id']?>' id='labelRD'><?=$mesa->nome?>
                                 <div class="colecao-img" style ="margin: 0 auto;width: 10vw;height: 10vw;background: url(<?=$BASE_URL?>data/eventos/<?= str_replace(' ', '%20', $mesa->foto)?>.<?=$mesa->foto['type']?>);background-size:100% 100%;background-repeat: no-repeat;"></div>
                                 </label>
@@ -129,7 +138,7 @@
                 <h2>Selecione uma foto:</h2>
                 <p>Foto: <input type="file" name="foto" id="foto" onchange="exibir('submitSobre');"></p>
                 <p>Modifique o texto</p>
-                <textarea class="sobre-texto" style="margin-top: 1vw;width: 40vw;" name="texto" id="texto" cols="30" rows="10" oninput="exibir('submitSobre');"></textarea>
+                <textarea class="sobre-texto" style="margin-top: 1vw;width: 40vw;" name="texto" id="texto" cols="30" rows="10" oninput="exibir('submitSobre');"><?= $xml->sobre->texto ?></textarea>
                 <br>
                 <input type="submit" value="Enviar" name="submitSobre" id="submitSobre" style="visibility: hidden; position: absolute;">
             </form> 

@@ -106,7 +106,7 @@ input[type="button"]:hover{
 
 .colecao-linhas{
     /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.04);
+    background: #ffc0c71e;
     border-radius: 0.8vw 0.8vw 0vw 0vw;
     box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
     border: 0.2vw solid rgba(255, 192, 199, 0.35);
@@ -211,7 +211,7 @@ input[type="button"]:hover{
 
 .evento-conteiner{
     /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.04);
+    background: #ffc0c71e;
     border-radius: 0.8vw 0.8vw 0vw 0vw;
     box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
     border: 0.1vw solid rgba(255, 255, 255, 0.35);
@@ -267,7 +267,7 @@ input[type="button"]:hover{
     width: 70%;
     padding: 1vw;
     /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.04);
+    background: #ffc0c71e;
     border-radius: 0.8vw;
     box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
     border: 0.2vw solid rgba(255, 192, 199, 0.35);
@@ -422,7 +422,7 @@ h2{
     width: 90%;
 	margin: 0.5vw auto;
     /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.04);
+    background: #ffc0c71e;
     border-radius: 0.8vw;
     box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
     border: 0.2vw solid rgba(255, 192, 199, 0.35);
@@ -463,12 +463,15 @@ h2{
     text-align: center;
     margin-top: 5vw;
     padding: 3.2vw;
-    background-color: rgb(165, 124, 74);
+    /* From https://css.glass */
+    background: #ffc0c773;
     border-radius: 2vw;
+    box-shadow: 0 0.2vw 1.6vw rgba(0, 0, 0, 0.1);
+    border: 0.2vw solid rgba(255, 192, 199, 0.35);
 }
 
 .excluirCB-grid{
-	width: 50%;
+	width: 80%;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, 15vw);
 	gap: 0.2vw;
@@ -476,6 +479,7 @@ h2{
 
 .excluirCB-opcao{
     text-align: center;
+    margin-bottom: 1vw;
 }
 
 .excluirEvento-grid{

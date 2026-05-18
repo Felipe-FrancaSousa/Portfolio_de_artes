@@ -57,12 +57,15 @@
                         $dom->formatOutput = true;
                         $dom->loadXML($xml->asXML());
 
-                        // Define onde está a raiz do XML
                         $root = $dom->getElementsByTagName('evento')->item(0);
+                        $ref = $root->firstChild;
 
-                        // Cria o elemento mesa com um atributo ID
+                        // Cria o elemento mesa
                         $mesa = $dom->createElement('mesa');
-                        $root->appendChild($mesa);
+
+                        // Insere antes do primeiro filho
+                        $root->insertBefore($mesa, $ref);
+
                         $mesa->setAttribute('id', $name);
 
                         // Cria e inclui os elemntos de nome da coleção e as imagens

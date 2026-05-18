@@ -6,7 +6,7 @@
                 <p>Acesso da área de gerenciamento</p>
                 <br>
                 <form action="?" method="post">
-                    <p>Senha: <input type="password" name="senha" id="senha" required></p>
+                    <p>Senha: <input type="password" name="senha" id="senha" autofocus required></p>
                     <br>
                     <input type="submit" value="Enviar" name="Enviar">
                 </form>

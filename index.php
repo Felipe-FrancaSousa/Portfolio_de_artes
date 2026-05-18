@@ -63,11 +63,7 @@
                 </div>
                 <div class="evento-grid">
                     <?php foreach($xml->evento->mesa as $mesas):?>
-                        <div class="evento-img" style ="background: url(<?=$BASE_URL?>data/eventos/<?= str_replace(' ', '%20', $mesas->foto)?>.<?=$mesas->foto['type']?>);
-                                                        background-position: center;
-                                                        background-repeat: no-repeat;
-                                                        background-size: cover;
-                                                        ">
+                        <div class="evento-img" style ="background: url(<?=$BASE_URL?>data/eventos/<?= str_replace(' ', '%20', $mesas->foto)?>.<?=$mesas->foto['type']?>); background-position: center; background-repeat: no-repeat; background-size: cover;">
                             <!-- Cria o overlay com o nome da imagem -->
                             <a href="<?=$BASE_URL?>data/eventos/<?= str_replace(' ', '%20', $mesas->foto)?>.<?=$mesas->foto['type']?>" data-lightbox="eventos" data-title="<?=$mesas->nome?> - <?=$mesas->data?>" draggable="false">
                                 <div class = "evento-img-overlay">
